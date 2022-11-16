@@ -20,9 +20,14 @@ namespace Dialog
         public bool InDialog => _currentDialog != null;
         public bool ChosingAnswers => _chosingAnswers;
 
-        private void Awake()
+        private void OnEnable()
         {
             InputHandler.Singletone.Dialog.NextStory.started += (InputAction.CallbackContext context) => { NextStory(); };
+        }
+
+        private void OnDisable()
+        {
+            InputHandler.Singletone.Dialog.NextStory.started -= (InputAction.CallbackContext context) => { NextStory(); };
         }
 
         public void FinishDialog()

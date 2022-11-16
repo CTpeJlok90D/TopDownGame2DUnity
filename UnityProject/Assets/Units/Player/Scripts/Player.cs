@@ -11,11 +11,6 @@ namespace Player
 
         public bool CanMove => InputHandler.Singletone.WorldMovement.enabled;
 
-        private void Start()
-        {
-            InputHandler.Singletone.WorldMovement.Enable();
-        }
-
         private void OnEnable()
         {
             InputHandler.Singletone.WorldMovement.Move.started += Move;

@@ -670,6 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 0.2
+  _destroyItOnExitTime: 1
 --- !u!58 &4936325896067640282
 CircleCollider2D:
   m_ObjectHideFlags: 0

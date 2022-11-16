@@ -13,9 +13,14 @@ namespace Abilitys
             _owner.AddForce(_head.up * _dashStrench);
         }
 
-        private void Awake()
+        private void OnEnable()
         {
             InputHandler.Singletone.WorldMovement.Dash.started += Use;
+        }
+
+        private void OnDisable()
+        {
+            InputHandler.Singletone.WorldMovement.Dash.started -= Use;
         }
     }
 }

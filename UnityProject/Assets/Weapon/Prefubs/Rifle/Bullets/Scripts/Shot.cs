@@ -45,5 +45,10 @@ namespace Weapons
         {
             _instanses.Add(this);
         }
+
+        private void OnDestroy()
+        {
+            _instanses.Remove(this);
+        }
     }
 }

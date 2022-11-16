@@ -3,6 +3,7 @@ using UnityEngine;
 public class TimedObject : MonoBehaviour
 {
     [SerializeField] private float _lifeTime;
+    [SerializeField] private bool _destroyItOnExitTime = false;
 
     private float _startLifeTime;
 
@@ -21,6 +22,10 @@ public class TimedObject : MonoBehaviour
         _lifeTime -= Time.deltaTime;
         if (_lifeTime <= 0)
         {
+            if (_destroyItOnExitTime)
+            {
+                Destroy(gameObject);
+            }
             gameObject.SetActive(false);
         }
     }

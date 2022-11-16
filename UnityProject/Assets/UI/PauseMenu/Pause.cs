@@ -11,11 +11,23 @@ public class Pause : MonoBehaviour
     [SerializeField] private UnityEvent _gameContinue;
     private bool _isPaused;
 
-    private void Start()
+    private void OnEnable()
     {
         InputHandler.Singletone.PauseMenu.Enable();
         InputHandler.Singletone.PauseMenu.OpenClose.Enable();
         InputHandler.Singletone.PauseMenu.OpenClose.started += (InputAction.CallbackContext context) => OnMenuOpen();
+    }
+
+    private void OnDisable()
+    {
+        InputHandler.Singletone.PauseMenu.Disable();
+        InputHandler.Singletone.PauseMenu.OpenClose.Disable();
+        InputHandler.Singletone.PauseMenu.OpenClose.started -= (InputAction.CallbackContext context) => OnMenuOpen();
+    }
+
+    private void Start()
+    {
+        GameContinue();
     }
 
     public void OnMenuOpen()
@@ -24,13 +36,13 @@ public class Pause : MonoBehaviour
         _pauseMenu.SetActive(_isPaused);
         if (_isPaused)
         {
-            GanePause();
+            GamePause();
             return;
         }
         GameContinue();
     }
 
-    private void GanePause()
+    private void GamePause()
     {
         Time.timeScale = 0;
         InputHandler.Singletone.WorldMovement.Disable();

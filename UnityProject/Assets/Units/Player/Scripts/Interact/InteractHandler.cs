@@ -13,9 +13,14 @@ namespace Player
 
         private IInteracteble _lastInteractebleInZone;
 
-        private void Awake()
+        private void OnEnable()
         {
             InputHandler.Singletone.WorldMovement.Interact.started += Interact;
+        }
+
+        private void OnDisable()
+        {
+            InputHandler.Singletone.WorldMovement.Interact.started -= Interact;
         }
 
         public void Interact(InputAction.CallbackContext context)
