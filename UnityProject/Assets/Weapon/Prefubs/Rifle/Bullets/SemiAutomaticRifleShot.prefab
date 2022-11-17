@@ -414,6 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 0.05
+  _destroyItOnExitTime: 0
 --- !u!114 &5095723506111581097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 3
+  _destroyItOnExitTime: 0
 --- !u!114 &1287259881302544560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +552,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6240495845799882092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b6b91d4e600b144a1f66780333dc34, type: 3}
+  m_Script: {fileID: 11500000, guid: 8db546ceb3a87174d810536fcb0aa543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 5025288171717105775}

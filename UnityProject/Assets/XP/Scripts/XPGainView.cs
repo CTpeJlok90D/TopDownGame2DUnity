@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public sealed class XPGainView : MonoBehaviour
@@ -17,51 +15,44 @@ public sealed class XPGainView : MonoBehaviour
 
     private float _currentVisibleTime;
     private int _currentValue = 0;
-
-    private void OnEnable()
-    {
-        _currentVisibleTime = _visibleTime;
-    }
-
+    private Coroutine _hideCorrutine;
+    private float _cofficient = 0;
     public void OnXPGain(int gainValue)
     {
-        _text.color = _normalColor;
         _currentValue += gainValue;
+        Show();
+        if (_hideCorrutine != null)
+        {
+            StopCoroutine(_hideCorrutine);
+        }
+        _hideCorrutine = StartCoroutine(HideCorrutine());
+    }
+
+    private void Show()
+    {
+        _text.color = _normalColor;
         _currentVisibleTime = _visibleTime;
         _text.text = $"+{_currentValue} xp";
         transform.position = _xpViewPosition.position;
+        _cofficient = 0;
         gameObject.SetActive(true);
-    }
-
-    private void Update()
-    {
-        VisibleUpdate();
-    }
-
-    private void VisibleUpdate()
-    {
-        _currentVisibleTime -= Time.deltaTime;
-        if (_currentVisibleTime <= 0)
-        {
-            Hide();
-        }
-    }
-
-    private void Hide()
-    {
-        StartCoroutine(HideCorrutine());
     }
 
     private IEnumerator HideCorrutine()
     {
-        float cofficient = 0;
-        while (cofficient <= 1)
+        while (_currentVisibleTime > 0)
         {
-            _text.color = Color.Lerp(_normalColor, _hideColor, cofficient);
-            cofficient += Time.deltaTime * _hideSpeed;
+            _currentVisibleTime -= Time.deltaTime;
+            yield return null;
+        }
+        while (_cofficient <= 1)
+        {
+            _text.color = Color.Lerp(_normalColor, _hideColor, _cofficient);
+            _cofficient += Time.deltaTime * _hideSpeed;
             yield return null;
         }
         gameObject.SetActive(false);
         _currentValue = 0;
+        _hideCorrutine = null;
     }
 }

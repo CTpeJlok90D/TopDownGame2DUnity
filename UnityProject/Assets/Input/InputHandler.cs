@@ -1,23 +1,19 @@
 using Input;
 using UnityEngine;
 
-public class InputHandler : MonoBehaviour
+public static class InputHandler
 {
     private static PlayerInput _input;
 
-    public static PlayerInput Singletone => _input;
-
-    private void Awake()
-    {
-        if (_input == null)
+    public static PlayerInput Singletone {
+        get
         {
-            _input = new PlayerInput();
-            _input.WorldMovement.Enable();
+            if (_input == null)
+            {
+                _input = new PlayerInput();
+                _input.WorldMovement.Enable();
+            }
+            return _input;
         }
-    }
-
-    private void OnDisable()
-    {
-        _input = null;
     }
 }

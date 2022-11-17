@@ -1,6 +1,6 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Weapon;
 
 namespace Weapons 
 {
@@ -8,7 +8,7 @@ namespace Weapons
     {
         [Header("Rifle")]
         [SerializeField] private Transform _bulletSpawnpoint;
-        [SerializeField] private Shot _bulletPrefub;
+        [SerializeField] private RifleShot _bulletPrefub;
         [SerializeField] private bool _fullAutomatic = false;
         [SerializeField] private int _maxAmmoCount = 30;
         [SerializeField] private float _reloadingTime = 0.5f;
@@ -18,6 +18,8 @@ namespace Weapons
         private InputActionPhase _phase;
 
         protected override bool AttackCodiction => _ammoCount > 0;
+
+        public override Type ShotType => typeof(RifleShot);
 
         private void Awake()
         {
@@ -43,7 +45,7 @@ namespace Weapons
         protected override void ForsetAttack()
         {
             _ammoCount -= 1;
-            Shot.Summon(OwnerXpContainer, _bulletPrefub, _bulletSpawnpoint);
+            Shot.Summon(_bulletPrefub, ShotType, _bulletSpawnpoint).Init(OwnerInfo);
         }
 
         private void OnUpdate()

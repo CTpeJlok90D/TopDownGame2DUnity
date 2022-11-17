@@ -1,14 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
-using Player;
 using UnityEngine.InputSystem;
+using Player;
 
 namespace Weapons 
 {
     public abstract class Weapon : PickableItem, IInteracteble
     {
-        [HideInInspector] public XPcontainer OwnerXpContainer;
-
         [Header("Weapon")]
         [SerializeField] private UnityEvent _onAttack = new UnityEvent();
         [SerializeField] private float _timeBetweenAttacks = 0.1f;
@@ -21,8 +20,10 @@ namespace Weapons
         protected UnityEvent UpdateEvent => _update;
         protected UnityEvent<InputActionPhase> WeaponUsed => _weaponIsed;
 
+        public abstract Type ShotType {get;}
         protected virtual bool AttackCodiction => true;
         protected abstract void ForsetAttack();
+
         public void Use(InputActionPhase phase)
         {
             _weaponIsed.Invoke(phase);

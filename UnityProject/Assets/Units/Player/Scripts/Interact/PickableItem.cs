@@ -10,11 +10,13 @@ namespace Player
         [SerializeField] private UnityEvent _onPickUp = new UnityEvent();
 
         private bool _onFloor = true;
-        private GameObject _owner;
+        private OwnerInfo _ownerInfo;
+
 
         public bool OnFloor => _onFloor;
         public UnityEvent OnDrop => _onDrop;
         public UnityEvent OnPickUp => _onPickUp;
+        public OwnerInfo OwnerInfo => _ownerInfo;
 
         public void Drop()
         {
@@ -23,10 +25,10 @@ namespace Player
             _onDrop.Invoke();
         }
 
-        public void PickUp(GameObject owner)
+        public void PickUp(OwnerInfo ownerInfo)
         {
-            _owner = owner;
-            transform.SetParent(_owner.transform);
+            _ownerInfo = ownerInfo;
+            transform.SetParent(OwnerInfo.transform);
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
             _onFloor = false;

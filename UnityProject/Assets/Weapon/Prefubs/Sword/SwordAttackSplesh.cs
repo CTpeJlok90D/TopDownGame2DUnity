@@ -1,42 +1,17 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Weapons
 {
-    public class SwordAttackSplesh : MonoBehaviour
+    public class SwordAttackSplesh : Shot
     {
         private static List<SwordAttackSplesh> _instanses = new();
 
-        public static SwordAttackSplesh Summon(SwordAttackSplesh prefub, Transform summonTransform)
-        {
-            SwordAttackSplesh result;
-            if (_instanses.Count == 0)
-            {
-                result = Instantiate(prefub);
-            }
-            else
-            {
-                result = _instanses[0];
-            }
-            result.gameObject.SetActive(true);
-            result.Init(summonTransform);
-            return result;
-        }
+        public override Type CurrentShotType => typeof(SwordAttackSplesh);
 
-        private void Init(Transform summonTransofrm)
+        public override Shot Init(OwnerInfo _info)
         {
-            transform.position = summonTransofrm.position;
-            transform.rotation = summonTransofrm.rotation;
-        }
-
-        private void OnEnable()
-        {
-            _instanses.Remove(this);
-        }
-
-        private void OnDisable()
-        {
-            _instanses.Add(this);
+            return this;
         }
     }
 }

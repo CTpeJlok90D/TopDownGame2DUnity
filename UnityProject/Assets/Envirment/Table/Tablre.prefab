@@ -164,7 +164,7 @@ MonoBehaviour:
   - {x: 0.68359375, y: -0.47851562, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -552936
+  m_InstanceId: -113594
 --- !u!114 &4701565114222139256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +194,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 674898226492400525}
+        m_TargetAssemblyTypeName: ObjectDestroyView, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _takeDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -202,7 +214,19 @@ MonoBehaviour:
       m_Calls: []
   _currentChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 674898226492400525}
+        m_TargetAssemblyTypeName: ObjectDestroyView, Assembly-CSharp
+        m_MethodName: OnCurrentHealthChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4701565114222139257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,9 +266,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2becc2687bc7f0b42a92e5f70521fb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 4701565114222139256}
   _spriteRenderer: {fileID: 4701565114222139252}
-  _keys: 1e0000003c00000064000000
+  _rigidbody: {fileID: 4701565114222139250}
+  _keys: 000000003c00000064000000
   _value:
   - {fileID: 2100000, guid: b6c3b3bc86dd06248a1f12a7a2f7f2ff, type: 2}
   - {fileID: 2100000, guid: f08be86d4d177864ca4b5580d67b033d, type: 2}

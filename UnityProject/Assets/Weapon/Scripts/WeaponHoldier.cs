@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Weapon;
 
 namespace Weapons 
 {
@@ -9,7 +8,7 @@ namespace Weapons
         [Header("Weapon holdier")]
         [SerializeField] private Weapon _currentWeapon;
         [SerializeField] private XPcontainer _owenerXPContainter;
-
+        [SerializeField] private Transform _weaponHoldierTransform;
         public Weapon CurrentWeapon => _currentWeapon;
         public bool CanShoot => _currentWeapon != null;
 
@@ -59,20 +58,23 @@ namespace Weapons
 
         public void DropWeapon()
         {
-            _currentWeapon?.Drop();
             if (_currentWeapon != null)
             {
-                _currentWeapon.OwnerXpContainer = null;
+                Shot.ClearInstances(_currentWeapon.ShotType);
+                _currentWeapon.Drop();
+                _currentWeapon = null;
             }
-            _currentWeapon = null;
         }
 
         public void PutWeapon(Weapon weapon) 
         {
             DropWeapon();
             _currentWeapon = weapon;
-            _currentWeapon.OwnerXpContainer = _owenerXPContainter;
-            weapon.PickUp(gameObject);
+            weapon.PickUp(new OwnerInfo()
+            {
+                   transform = _weaponHoldierTransform,
+                   xpContainer = _owenerXPContainter,
+            });
         }
     }
 }
