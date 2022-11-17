@@ -1,5 +1,4 @@
 ﻿using Dialog;
-using System;
 using Weapons;
 
 public struct InteractInfo

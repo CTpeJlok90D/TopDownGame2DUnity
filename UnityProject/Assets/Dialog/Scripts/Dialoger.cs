@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -22,12 +23,12 @@ namespace Dialog
 
         private void OnEnable()
         {
-            InputHandler.Singletone.Dialog.NextStory.started += (InputAction.CallbackContext context) => { NextStory(); };
+            InputHandler.Singletone.Dialog.NextStory.started += NextStory;
         }
 
         private void OnDisable()
         {
-            InputHandler.Singletone.Dialog.NextStory.started -= (InputAction.CallbackContext context) => { NextStory(); };
+            InputHandler.Singletone.Dialog.NextStory.started -= NextStory;
         }
 
         public void FinishDialog()
@@ -37,6 +38,11 @@ namespace Dialog
             _currentDialog = null;
             _characterImage.sprite = null;
             _dialogWindow.gameObject.SetActive(false);
+        }
+
+        private void NextStory(InputAction.CallbackContext context)
+        {
+            NextStory();
         }
 
         private void NextStory()

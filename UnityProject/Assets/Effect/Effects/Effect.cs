@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace Effects
@@ -9,9 +8,11 @@ namespace Effects
         private float _dituration;
         private bool _firstTick = true;
         private UnityEvent _onDiturationEnd = new();
+
         public float Diruration => _dituration;
         public bool FirstTick => _firstTick;
         public UnityEvent OnDiturationEnd => _onDiturationEnd;
+
         public virtual bool Visible => false;
         public virtual bool Permanent => false;
 

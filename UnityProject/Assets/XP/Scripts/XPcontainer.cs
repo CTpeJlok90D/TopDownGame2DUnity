@@ -8,10 +8,13 @@ public class XPcontainer : MonoBehaviour
     [SerializeField] private int _level = 1;
     [SerializeField] private int _skillPoints = 0;
     [SerializeField] private int _currentXP = 0;
-    [SerializeField] private int _XP_ToNextLevel = 100;
-    [SerializeField] private float _XP_Boost = 1.15f;
+    [SerializeField] private int _xpToNextLevel = 100;
+    [SerializeField] private float _xpBoost = 1.15f;
     [SerializeField] private List<Ability> _abilities = new();
-    [SerializeField] private UnityEvent<int> _onLevelUp = new();
+    [SerializeField] private UnityEvent<int> _levelUp = new();
+    [SerializeField] private UnityEvent<int> _xpCountChange = new();
+
+    public UnityEvent<int> LevelUp => _levelUp;
     
     public int XP
     {
@@ -21,12 +24,13 @@ public class XPcontainer : MonoBehaviour
         }
         set
         {
+            _xpCountChange.Invoke(value - _currentXP);
             _currentXP = value;
-            if (_currentXP >= _XP_ToNextLevel)
+            if (_currentXP >= _xpToNextLevel)
             {
                 _level ++;
-                _currentXP = 0;
-                _XP_ToNextLevel = (int)(_XP_ToNextLevel * _XP_Boost);
+                _currentXP = _currentXP - _xpToNextLevel;
+                _xpToNextLevel = (int)(_xpToNextLevel * _xpBoost);
             }
         }
     }
