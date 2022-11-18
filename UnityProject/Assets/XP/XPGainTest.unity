@@ -374,6 +374,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1373701108168489079, guid: 5ff460af81f02bd48a01df0b67c2a416, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373701108168489079, guid: 5ff460af81f02bd48a01df0b67c2a416, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2547298278332902220, guid: 5ff460af81f02bd48a01df0b67c2a416, type: 3}
       propertyPath: m_Name
       value: Player
@@ -422,29 +430,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3779313964823007286, guid: 5ff460af81f02bd48a01df0b67c2a416, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6107673587890843572, guid: 5ff460af81f02bd48a01df0b67c2a416, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 7327813345931753357, guid: 5ff460af81f02bd48a01df0b67c2a416, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6557881333717564411, guid: 5ff460af81f02bd48a01df0b67c2a416, type: 3}
-      propertyPath: m_text
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6557881333717564411, guid: 5ff460af81f02bd48a01df0b67c2a416, type: 3}
-      propertyPath: m_fontSize
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6557881333717564411, guid: 5ff460af81f02bd48a01df0b67c2a416, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6557881333717564411, guid: 5ff460af81f02bd48a01df0b67c2a416, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 512
+    - target: {fileID: 7327813345931753357, guid: 5ff460af81f02bd48a01df0b67c2a416, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff460af81f02bd48a01df0b67c2a416, type: 3}

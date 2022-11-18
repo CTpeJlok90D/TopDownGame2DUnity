@@ -20,7 +20,7 @@ public class ObjectDestroyView : MonoBehaviour
 
     public void OnDeath()
     {
-        _rigidbody.isKinematic =true;
+        _rigidbody.isKinematic = true;
         _rigidbody.velocity = Vector2.zero;
         _rigidbody.angularVelocity = 0;
     }

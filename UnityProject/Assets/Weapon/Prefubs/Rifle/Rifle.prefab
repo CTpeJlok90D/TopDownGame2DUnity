@@ -114,18 +114,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OwnerXpContainer: {fileID: 0}
-  _onShoot:
+  _onAttack:
     m_PersistentCalls:
       m_Calls: []
-  _timeBetweenShoots: 0.1
-  ammoCount: 30
+  _timeBetweenAttacks: 0.1
   _bulletSpawnpoint: {fileID: 8172899696186982359}
   _bulletPrefub: {fileID: 1287259881302544560, guid: d9e798c798612d64cae99a463c78aa4c, type: 3}
   _fullAutomatic: 0
   _maxAmmoCount: 30
   _reloadingTime: 1.5
-  _onReloadEvent:
+  _reloadTimeLineEvents:
   - Event:
       m_PersistentCalls:
         m_Calls: []
@@ -134,6 +132,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     Time: 1.5
+  _ammoCount: 30
 --- !u!1 &8172899696186982356
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +257,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cf41ba016482c064bb996e1e1fbc1023, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.6152153, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.4302318, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

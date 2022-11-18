@@ -14,8 +14,8 @@ namespace Player
 
 
         public bool OnFloor => _onFloor;
-        public UnityEvent OnDrop => _onDrop;
-        public UnityEvent OnPickUp => _onPickUp;
+        public UnityEvent OnDropEvent => _onDrop;
+        public UnityEvent OnPickUpEvent => _onPickUp;
         public OwnerInfo OwnerInfo => _ownerInfo;
 
         public void Drop()

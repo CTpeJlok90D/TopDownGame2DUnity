@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 namespace Weapons 
 {
@@ -9,6 +10,8 @@ namespace Weapons
         [SerializeField] private Weapon _currentWeapon;
         [SerializeField] private XPcontainer _owenerXPContainter;
         [SerializeField] private Transform _weaponHoldierTransform;
+        [SerializeField] private UnityEvent<Weapon> _weaponPickUp;
+        [SerializeField] private UnityEvent _weaponDrop;
         public Weapon CurrentWeapon => _currentWeapon;
         public bool CanShoot => _currentWeapon != null;
 
@@ -64,6 +67,7 @@ namespace Weapons
                 _currentWeapon.Drop();
                 _currentWeapon = null;
             }
+            _weaponDrop.Invoke();
         }
 
         public void PutWeapon(Weapon weapon) 
@@ -75,6 +79,7 @@ namespace Weapons
                    transform = _weaponHoldierTransform,
                    xpContainer = _owenerXPContainter,
             });
+            _weaponPickUp.Invoke(_currentWeapon);
         }
     }
 }

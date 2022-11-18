@@ -3,21 +3,19 @@ using UnityEngine.Events;
 
 namespace Health
 {
-    public class Health : MonoBehaviour
+    public class CharacterHealth : MonoBehaviour
     {
         [SerializeField] private int _max = 100;
         [SerializeField] private int _current = 100;
         [SerializeField] private UnityEvent _death = new UnityEvent();
-        [SerializeField] private UnityEvent<int> _takeDamage = new UnityEvent<int>();
-        [SerializeField] private UnityEvent<int> _gotHeal = new UnityEvent<int>();
-        [SerializeField] private UnityEvent<int> _currentChanged = new UnityEvent<int>();
+        [SerializeField] private UnityEvent<int> _takeDamage = new();
+        [SerializeField] private UnityEvent<int> _gotHeal = new();
+        [SerializeField] private UnityEvent<int,int> _currentChanged = new();
 
         private bool _isDead = false;
 
         public int Max => _max;
         public int Min => _current;
-        public UnityEvent Death => _death;
-        public UnityEvent<int> CurrentChanged => _currentChanged;
 
         public int Current
         {
@@ -33,11 +31,11 @@ namespace Health
                     _takeDamage.Invoke(value - _current);
                 }
                 _current = Mathf.Clamp(value, 0, _max);
-                _currentChanged.Invoke(_current);
+                _currentChanged.Invoke(_current, _max);
                 if (_current <= 0 && _isDead == false)
                 {
                     _isDead = true;
-                    Death.Invoke();
+                    _death.Invoke();
                 }
             }
         }
