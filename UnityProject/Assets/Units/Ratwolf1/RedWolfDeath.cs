@@ -8,7 +8,8 @@ public class RedWolfDeath : MonoBehaviour
     [SerializeField] private Collider2D _collider2D;
     [SerializeField] private GameObject _deathBloodPrefub;
     [SerializeField] private GameObject _injuredBloodPrefub;
-    [SerializeField] private float _deathDrug;
+    [SerializeField] private float _deathDrug = 5;
+    [SerializeField] private float _angularDrug = 5;
 
     private float CloseRandomAngle => transform.rotation.eulerAngles.z - Random.Range(-30, 30);
 
@@ -22,8 +23,8 @@ public class RedWolfDeath : MonoBehaviour
         Instantiate(_deathBloodPrefub, new Vector3(transform.position.x, transform.position.y, _deathBloodPrefub.transform.position.z), Quaternion.Euler(0, 0, CloseRandomAngle));
         _spriteRenderer.sprite = _deathSprites[Random.Range(0, _deathSprites.Length)];
         transform.rotation = Quaternion.Euler(0, 0, CloseRandomAngle);
-        _rigidbody2D.drag = 2f;
-        _rigidbody2D.angularDrag = 2f;
+        _rigidbody2D.drag = _deathDrug;
+        _rigidbody2D.angularDrag = _angularDrug;
         _collider2D.enabled = false;
     }
 }
