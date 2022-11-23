@@ -8,8 +8,7 @@ namespace Weapons
     {
         [SerializeField] private SwordAttackSplesh _attackSpleshPrefab;
         [SerializeField] private Transform _attackSplestSpawnpoint;
-
-        public override Type ShotType => typeof(SwordAttackSplesh);
+        public override Type ShotType => _attackSpleshPrefab.GetType();
 
         private void Awake()
         {
@@ -26,7 +25,7 @@ namespace Weapons
 
         protected override void ForsetAttack()
         {
-            SwordAttackSplesh.Summon(_attackSpleshPrefab, ShotType, _attackSplestSpawnpoint).Init(OwnerInfo);
+            SwordAttackSplesh.Summon(_attackSpleshPrefab, ShotType, _attackSplestSpawnpoint).Init(OwnerInfo, 0);
         }
     }
 }

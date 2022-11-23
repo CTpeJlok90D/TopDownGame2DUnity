@@ -1,5 +1,4 @@
 ﻿using Effects;
-using System;
 using UnityEngine;
 
 namespace Weapons
@@ -11,9 +10,7 @@ namespace Weapons
 
         private XPcontainer _ownerXPContainer;
 
-        public override Type CurrentShotType => typeof(SwordAttackSplesh);
-
-        public override Shot Init(OwnerInfo _info)
+        public override Shot Init(OwnerInfo _info, float _bloomInDegrees)
         {
             _ownerXPContainer = _info.xpContainer;
             return this;

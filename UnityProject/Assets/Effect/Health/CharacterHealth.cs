@@ -42,7 +42,10 @@ namespace Health
 
         public void TakeEffectImpact(Impact impact)
         {
-            Current += impact.Heal - impact.Damage;
+            if (impact.Heal != 0 || impact.Damage != 0)
+            {
+                Current += impact.Heal - impact.Damage;
+            }
         }
     }
 }

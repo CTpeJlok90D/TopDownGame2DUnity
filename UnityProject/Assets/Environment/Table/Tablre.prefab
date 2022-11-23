@@ -164,7 +164,7 @@ MonoBehaviour:
   - {x: 0.68359375, y: -0.47851562, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -113594
+  m_InstanceId: -1846
 --- !u!114 &4701565114222139256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 674898226492400525}
         m_TargetAssemblyTypeName: ObjectDestroyView, Assembly-CSharp
-        m_MethodName: OnCurrentHealthChanged
+        m_MethodName: OnCurrentChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -268,11 +268,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 4701565114222139252}
   _rigidbody: {fileID: 4701565114222139250}
-  _keys: 000000003c00000064000000
-  _value:
-  - {fileID: 2100000, guid: b6c3b3bc86dd06248a1f12a7a2f7f2ff, type: 2}
-  - {fileID: 2100000, guid: f08be86d4d177864ca4b5580d67b033d, type: 2}
-  - {fileID: 2100000, guid: 30b4683693bd39b41be8ab3a7ad7b24c, type: 2}
+  _rangeSpriteDictionaryItems:
+  - Key:
+      Max: 50
+      Min: 0
+    Sprite: {fileID: 21300000, guid: 18abd74c0ce15a543b05b53f78495450, type: 3}
+  - Key:
+      Max: 99
+      Min: 51
+    Sprite: {fileID: 21300000, guid: 30503a76dea30d84aa8ef99bfda25212, type: 3}
+  - Key:
+      Max: 101
+      Min: 100
+    Sprite: {fileID: 21300000, guid: 2b9f73abd63c58b4d96684f5d13d68b0, type: 3}
 --- !u!114 &8086328802581448674
 MonoBehaviour:
   m_ObjectHideFlags: 0

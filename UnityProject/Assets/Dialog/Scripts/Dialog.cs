@@ -3,7 +3,6 @@ using UnityEngine.Events;
 
 namespace Dialog
 {
-    [CreateAssetMenu()]
     public class Dialog : ScriptableObject
     {
         [SerializeField] private Story[] _storys;

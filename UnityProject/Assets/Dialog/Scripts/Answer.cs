@@ -1,9 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Dialog
 {
-    [CreateAssetMenu()]
     public class Answer : ScriptableObject
     {
         [SerializeField] private string _text;

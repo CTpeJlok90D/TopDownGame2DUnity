@@ -9,21 +9,21 @@ namespace Weapons
     {
         [Header("Rifle")]
         [SerializeField] private Transform _bulletSpawnpoint;
-        [SerializeField] private RifleShot _bulletPrefub;
+        [SerializeField] private Shot _bulletPrefub;
         [SerializeField] private bool _fullAutomatic = false;
         [SerializeField] private int _maxAmmoCount = 30;
         [SerializeField] private int _ammoCount = 30;
         [SerializeField] private float _reloadingTime = 0.5f;
         [SerializeField] private TimeLineEvent[] _reloadTimeLineEvents;
+        [SerializeField] private AnimationCurve _bloomCurve = new();
 
         private InputActionPhase _phase;
         private TimeLine _reloadTimeLine;
         private Coroutine _reloadTimeLineCourutine;
         private UnityEvent<int> _ammoCountChanged = new();
+        [SerializeField] private float _currentBloomCoefficient;
 
         protected override bool AttackCodiction => AmmoCount > 0;
-
-        public override Type ShotType => typeof(RifleShot);
 
         public int AmmoCount 
         {
@@ -39,6 +39,8 @@ namespace Weapons
         }
 
         public UnityEvent<int> AmmoCountChanged => _ammoCountChanged;
+
+        public override Type ShotType => _bulletPrefub.GetType();
 
         private void Awake()
         {
@@ -56,6 +58,7 @@ namespace Weapons
             if (_phase == InputActionPhase.Started)
             {
                 Attack();
+                _currentBloomCoefficient = 0;
             }
         }
 
@@ -67,7 +70,8 @@ namespace Weapons
         protected override void ForsetAttack()
         {
             AmmoCount -= 1;
-            Shot.Summon(_bulletPrefub, ShotType, _bulletSpawnpoint).Init(OwnerInfo);
+            Shot.Summon(_bulletPrefub, _bulletPrefub.GetType(), _bulletSpawnpoint).Init(OwnerInfo, _bloomCurve.Evaluate(_currentBloomCoefficient));
+            _currentBloomCoefficient += 1f;
         }
 
         private void OnDrop()

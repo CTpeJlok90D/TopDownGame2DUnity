@@ -8,8 +8,8 @@ namespace Weapons
     {
         private static Dictionary<Type,List<Shot>> _instanses = new();
 
-        public abstract Shot Init(OwnerInfo _info);
-        public abstract Type CurrentShotType {get;}
+        public abstract Shot Init(OwnerInfo _info, float _currentBloomEffect);
+        public Type CurrentShotType => GetType();
 
         public static Shot Summon(Shot shotPrefub, Type shotType, Transform spawnpointTransform)
         {
@@ -57,7 +57,7 @@ namespace Weapons
                 _instanses[CurrentShotType].Add(this);
                 return;
             }
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

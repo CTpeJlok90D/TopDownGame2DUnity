@@ -17,10 +17,10 @@ namespace Weapons
         private UnityEvent _update = new();
 
         public bool CanAttack => _cantAttackNextSeconds == 0 && AttackCodiction;
+        public abstract Type ShotType { get; }
         protected UnityEvent UpdateEvent => _update;
         protected UnityEvent<InputActionPhase> WeaponUsed => _weaponIsed;
 
-        public abstract Type ShotType {get;}
         protected virtual bool AttackCodiction => true;
         protected abstract void ForsetAttack();
 
