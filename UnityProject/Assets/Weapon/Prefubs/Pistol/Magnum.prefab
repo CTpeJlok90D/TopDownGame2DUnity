@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8172899695649691310}
   - component: {fileID: 8172899695649691308}
-  - component: {fileID: 6331123400992801859}
+  - component: {fileID: 3847385034041070835}
   m_Layer: 3
-  m_Name: SMG
+  m_Name: Magnum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,15 +91,15 @@ MonoBehaviour:
   _onAttack:
     m_PersistentCalls:
       m_Calls: []
-  _timeBetweenAttacks: 0.07
-  _weaponType: 3
+  _timeBetweenAttacks: 0.35
+  _weaponType: 2
   _bulletSpawnpoint: {fileID: 8172899696186982359}
-  _bulletPrefub: {fileID: 5431203100044583252, guid: e90e11800d1c7c848842223078db354a, type: 3}
-  _fullAutomatic: 1
-  _maxAmmoCount: 30
-  _ammoCount: 30
-  _reloadingTime: 1
-  _cameraImpactCoefficient: 0.25
+  _bulletPrefub: {fileID: 1287259881302544560, guid: 3232bb48b7ff5ac4eb561857af9b37c9, type: 3}
+  _fullAutomatic: 0
+  _maxAmmoCount: 8
+  _ammoCount: 8
+  _reloadingTime: 0.85
+  _cameraImpactCoefficient: 0.5
   _reloadTimeLineEvents:
   - Event:
       m_PersistentCalls:
@@ -114,29 +114,28 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 5
-      inSlope: 0.10180009
-      outSlope: 0.10180009
-      tangentMode: 0
+      value: 0
+      inSlope: 0.1875
+      outSlope: 0.1875
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.09808745
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 30
-      value: 15
-      inSlope: 0
-      outSlope: 0
+      time: 8
+      value: 1.5
+      inSlope: 0.06595926
+      outSlope: 0.06595926
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.28220803
       outWeight: 0
-    m_PreInfinity: 2
+    m_PreInfinity: 0
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _bloomFallRate: 8
+  _bloomFallRate: 1
   _bloomPerShot: 1
-  _currentBloomCoefficient: 0
---- !u!61 &6331123400992801859
+--- !u!61 &3847385034041070835
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,7 +284,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cf41ba016482c064bb996e1e1fbc1023, type: 3}
-  m_Color: {r: 0, g: 0.22478104, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.5452945, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

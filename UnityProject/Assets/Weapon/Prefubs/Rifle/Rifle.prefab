@@ -92,12 +92,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _timeBetweenAttacks: 0.1
+  _weaponType: 4
   _bulletSpawnpoint: {fileID: 8172899696186982359}
   _bulletPrefub: {fileID: 1287259881302544560, guid: d9e798c798612d64cae99a463c78aa4c, type: 3}
   _fullAutomatic: 0
   _maxAmmoCount: 12
   _ammoCount: 12
   _reloadingTime: 1.5
+  _cameraImpactCoefficient: 0.8
   _reloadTimeLineEvents:
   - Event:
       m_PersistentCalls:
@@ -113,24 +115,27 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2.0009975
+      outSlope: 2.0009975
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
+      time: 0.99950147
+      value: 2
+      inSlope: 0.1434966
+      outSlope: 0.1434966
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.10580009
       outWeight: 0
     m_PreInfinity: 2
-    m_PostInfinity: 1
+    m_PostInfinity: 2
     m_RotationOrder: 4
+  _bloomFallRate: 1.5
+  _bloomPerShot: 5
+  _currentBloomCoefficient: 0
 --- !u!61 &3847385034041070835
 BoxCollider2D:
   m_ObjectHideFlags: 0

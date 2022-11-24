@@ -4,8 +4,9 @@ using Weapons;
 
 namespace Player
 {
-    public class PickableItem : MonoBehaviour
+    public abstract class PickableItem : MonoBehaviour, IInteracteble
     {
+        [Header("Pickable Item")]
         [SerializeField] private UnityEvent _onDrop = new UnityEvent();
         [SerializeField] private UnityEvent _onPickUp = new UnityEvent();
 
@@ -25,10 +26,12 @@ namespace Player
             _onDrop.Invoke();
         }
 
+        public abstract void Interact(InteractInfo interactInfo);
+
         public void PickUp(OwnerInfo ownerInfo)
         {
             _ownerInfo = ownerInfo;
-            transform.SetParent(OwnerInfo.transform);
+            transform.SetParent(OwnerInfo.Transform);
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
             _onFloor = false;

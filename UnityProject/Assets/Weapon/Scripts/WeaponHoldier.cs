@@ -10,6 +10,7 @@ namespace Weapons
         [SerializeField] private Weapon _currentWeapon;
         [SerializeField] private XPcontainer _owenerXPContainter;
         [SerializeField] private Transform _weaponHoldierTransform;
+        [SerializeField] private EffectList _effectList;
         [SerializeField] private UnityEvent<Weapon> _weaponPickUp;
         [SerializeField] private UnityEvent _weaponDrop;
         public Weapon CurrentWeapon => _currentWeapon;
@@ -63,7 +64,7 @@ namespace Weapons
         {
             if (_currentWeapon != null)
             {
-                Shot.ClearInstances(_currentWeapon.ShotType);
+                Shot.ClearInstances(_currentWeapon.WeaponType);
                 _currentWeapon.Drop();
                 _currentWeapon = null;
             }
@@ -76,8 +77,9 @@ namespace Weapons
             _currentWeapon = weapon;
             weapon.PickUp(new OwnerInfo()
             {
-                   transform = _weaponHoldierTransform,
-                   xpContainer = _owenerXPContainter,
+                   Transform = _weaponHoldierTransform,
+                   XPContainer = _owenerXPContainter,
+                   EffectList = _effectList
             });
             _weaponPickUp.Invoke(_currentWeapon);
         }

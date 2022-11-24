@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4010881358063441468}
   - component: {fileID: 8708436835002162551}
   m_Layer: 3
-  m_Name: DoubleBarrielShotgun
+  m_Name: PompActionShotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,15 +106,15 @@ MonoBehaviour:
   _onAttack:
     m_PersistentCalls:
       m_Calls: []
-  _timeBetweenAttacks: 0.15
-  _weaponType: 0
+  _timeBetweenAttacks: 0.45
+  _weaponType: 1
   _bulletSpawnpoint: {fileID: 1918072628166411157}
   _bulletPrefub: {fileID: 8012254522787884149, guid: 40aeb4a922126ae4ca7bc6e63ec37efa, type: 3}
-  _fullAutomatic: 0
-  _maxAmmoCount: 2
-  _ammoCount: 2
+  _fullAutomatic: 1
+  _maxAmmoCount: 7
+  _ammoCount: 7
   _reloadingTime: 1.2
-  _cameraImpactCoefficient: 2
+  _cameraImpactCoefficient: 1.1
   _reloadTimeLineEvents:
   - Event:
       m_PersistentCalls:
@@ -130,17 +130,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 2.5
-      outSlope: 2.5
+      inSlope: 2.142857
+      outSlope: 2.142857
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 2
-      value: 6
-      inSlope: 2.5
-      outSlope: 2.5
+      time: 7
+      value: 16
+      inSlope: 2.142857
+      outSlope: 2.142857
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -148,9 +148,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _bloomFallRate: 1
-  _bloomPerShot: 2
-  _currentBloomCoefficient: 0
+  _bloomFallRate: 10
+  _bloomPerShot: 1
 --- !u!1 &6221680938944120662
 GameObject:
   m_ObjectHideFlags: 0
