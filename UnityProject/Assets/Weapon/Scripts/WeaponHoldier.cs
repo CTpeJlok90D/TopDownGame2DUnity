@@ -71,7 +71,7 @@ namespace Weapons
             _weaponDrop.Invoke();
         }
 
-        public void PutWeapon(Weapon weapon) 
+        public void PickUpWeapon(Weapon weapon) 
         {
             DropWeapon();
             _currentWeapon = weapon;

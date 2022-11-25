@@ -31,7 +31,7 @@ namespace Weapons
 
         public override void Interact(InteractInfo info)
         {
-            info.WeaponHoldier.PutWeapon(this);
+            info.WeaponHoldier.PickUpWeapon(this);
         }
 
         protected void Attack()

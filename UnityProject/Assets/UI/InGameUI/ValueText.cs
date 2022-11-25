@@ -7,8 +7,15 @@ public class ValueText : MonoBehaviour
     [SerializeField] private string _textBeforeValue = "";
     [SerializeField] private string _textAfterValue = "";
 
+    protected TMP_Text Text => _text;
+
     public void OnCorrentChanged(int current)
     {
-        _text.text = _textBeforeValue + current + _textAfterValue;
+        SetValue(current);
+    }
+
+    public void SetValue(int newValue)
+    {
+        _text.text = _textBeforeValue + newValue + _textAfterValue;
     }
 }

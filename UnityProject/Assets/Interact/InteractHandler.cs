@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Weapons;
 using Dialog;
+using System.Collections.Generic;
+using UnityEditor;
 
 namespace Player 
 {
@@ -11,7 +13,7 @@ namespace Player
         [SerializeField] private Dialoger _dialogView;
         [SerializeField] private Player _player;
 
-        private IInteracteble _lastInteractebleInZone;
+        private List<IInteracteble> _interactebleItemsInZone = new();
 
         private void OnEnable()
         {
@@ -25,7 +27,22 @@ namespace Player
 
         public void Interact(InputAction.CallbackContext context)
         {
-            _lastInteractebleInZone?.Interact(new InteractInfo()
+            if (_interactebleItemsInZone.Count == 0)
+            {
+                return;
+            }
+            IInteracteble closesestItem = _interactebleItemsInZone[0];
+            float currentMinDistance = float.MaxValue;
+            foreach (IInteracteble item in _interactebleItemsInZone)
+            {
+                float currentDistance = Vector2.Distance(closesestItem.transform.position, transform.position);
+                if (currentMinDistance < currentDistance)
+                {
+                    closesestItem = item;
+                    currentMinDistance = currentDistance;
+                }
+            }
+            closesestItem?.Interact(new InteractInfo()
             {
                 WeaponHoldier = _weaponHolder,
                 DialogView = _dialogView
@@ -36,15 +53,15 @@ namespace Player
         {
             if (other.TryGetComponent(out IInteracteble item))
             {
-                _lastInteractebleInZone = item;
+                _interactebleItemsInZone.Add(item);
             }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (_lastInteractebleInZone != null) 
+            if (other.TryGetComponent(out IInteracteble item)) 
             {
-                _lastInteractebleInZone = null;
+                _interactebleItemsInZone.Remove(item);
             }
         }
     }

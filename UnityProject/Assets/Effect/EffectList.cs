@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Effects;
 using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
 
 public class EffectList : MonoBehaviour
 {
