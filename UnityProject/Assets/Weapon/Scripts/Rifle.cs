@@ -64,6 +64,7 @@ namespace Weapons
 
         public void Reload()
         {
+            AmmoCount = 0;
             _reloadTimeLineCourutine = StartCoroutine(_reloadTimeLine.StartTimerCorutine());
         }
 

@@ -13,5 +13,10 @@ namespace AI.Tasks
         }
 
         public abstract void Execute();        
+
+        public void AddPriority(int value)
+        {
+            _priority += value;
+        }
     }
 }
