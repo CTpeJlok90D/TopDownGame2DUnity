@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 937361487}
   - component: {fileID: 937361488}
   - component: {fileID: 937361489}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 1157956685}
   - component: {fileID: 1157956686}
   - component: {fileID: 1157956687}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light 2D (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 8068696342396675550}
   - component: {fileID: 6284960524933402244}
   - component: {fileID: 753569665}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RedWolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ MonoBehaviour:
   - {x: -0.10730219, y: -0.36095935, z: 0}
   m_ShapePathHash: 1427809301
   m_Mesh: {fileID: 0}
-  m_InstanceId: -215958
+  m_InstanceId: 60620
 --- !u!1 &4102746653729386190
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 3983929323129996970}
   - component: {fileID: 5244386664962513610}
   - component: {fileID: 645646305504551733}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4102746653729386190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
