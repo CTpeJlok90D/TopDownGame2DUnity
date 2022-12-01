@@ -120,8 +120,8 @@ TextureImporter:
       name: InHandsDoubleBarrielShotgun
       rect:
         serializedVersion: 2
-        x: 5
-        y: 33
+        x: 22
+        y: 84
         width: 15
         height: 62
       alignment: 0
@@ -141,8 +141,8 @@ TextureImporter:
       name: OnFloorDoubleBarrielShotgun
       rect:
         serializedVersion: 2
-        x: 24
-        y: 33
+        x: 4
+        y: 84
         width: 15
         height: 62
       alignment: 0
@@ -162,8 +162,8 @@ TextureImporter:
       name: OnFloorSMG
       rect:
         serializedVersion: 2
-        x: 43
-        y: 33
+        x: 41
+        y: 84
         width: 19
         height: 39
       alignment: 0
@@ -183,8 +183,8 @@ TextureImporter:
       name: OnInHandsSMG
       rect:
         serializedVersion: 2
-        x: 65
-        y: 33
+        x: 63
+        y: 84
         width: 12
         height: 39
       alignment: 0
@@ -200,6 +200,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: GroundPistol
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 85
+        width: 17
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14fee77d4e9fcb34bbb6f07bef8f578b
+      internalID: 960021928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InHandPistol
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 85
+        width: 8
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee8fcca3f56f6b14d8a532487a47c297
+      internalID: 2021373951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundCarabine
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 84
+        width: 16
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a399c80b158849b42a2bf3d214746bf9
+      internalID: 1501193184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InHandsCarabine
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 85
+        width: 10
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e8664ea61f49ef4e905ab3cd2e9a87d
+      internalID: 911485576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -211,8 +295,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      InHandPistol: 2021373951
+      GroundPistol: 960021928
+      InHandsCarabine: 911485576
       OnFloorSMG: -2107542221
       InHandsDoubleBarrielShotgun: 858484213
+      GroundCarabine: 1501193184
       OnFloorDoubleBarrielShotgun: 2003019196
       OnInHandsSMG: -428401329
   spritePackingTag: 
