@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Abilitys
 {
@@ -15,12 +16,12 @@ namespace Abilitys
 
         private void OnEnable()
         {
-            InputHandler.Singletone.WorldMovement.Dash.started += Use;
+            InputHandler.Singletone.WorldMovement.Dash.started += (InputAction.CallbackContext context) => Use(context.phase);
         }
 
         private void OnDisable()
         {
-            InputHandler.Singletone.WorldMovement.Dash.started -= Use;
+            InputHandler.Singletone.WorldMovement.Dash.started -= (InputAction.CallbackContext context) => Use(context.phase);
         }
     }
 }

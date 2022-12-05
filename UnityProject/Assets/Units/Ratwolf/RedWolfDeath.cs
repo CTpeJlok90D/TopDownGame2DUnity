@@ -10,12 +10,14 @@ public class RedWolfDeath : MonoBehaviour
     [SerializeField] private AI.AI _ai;
     [SerializeField] private float _deathDrug = 5;
     [SerializeField] private float _angularDrug = 5;
+    [SerializeField] private float _rangeDistance = 1.2f;
 
     private float CloseRandomAngle => transform.rotation.eulerAngles.z - Random.Range(-30, 30);
 
     public void OnTakeDamage()
     {
-        Instantiate(_injuredBloodPrefub, new Vector3(transform.position.x, transform.position.y, _injuredBloodPrefub.transform.position.z), Quaternion.Euler(0, 0, CloseRandomAngle));
+        GameObject instance = Instantiate(_injuredBloodPrefub, new Vector3(transform.position.x + Random.Range(-_rangeDistance, _rangeDistance), transform.position.y + Random.Range(-_rangeDistance, _rangeDistance), _injuredBloodPrefub.transform.position.z), Quaternion.Euler(0, 0, 0));
+        instance.transform.up = -transform.position;
     }
 
     public void OnDeath()

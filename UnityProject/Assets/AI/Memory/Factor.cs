@@ -2,6 +2,8 @@
 {
     public enum Factor
     {
-        Player
+        Player,
+        RedWolfCallOfHelp,
+        Shot
     }
 }

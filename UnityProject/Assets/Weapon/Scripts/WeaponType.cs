@@ -9,6 +9,7 @@
         Rifle,
         Sword,
         Hammer,
-        Knife
+        Knife,
+        RatwolfAttack
     }
 }

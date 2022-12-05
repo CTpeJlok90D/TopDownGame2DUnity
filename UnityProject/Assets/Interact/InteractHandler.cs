@@ -32,11 +32,11 @@ namespace Player
                 return;
             }
             IInteracteble closesestItem = _interactebleItemsInZone[0];
-            float currentMinDistance = float.MaxValue;
+            float currentMinDistance = Vector2.Distance(closesestItem.transform.position, transform.position);
             foreach (IInteracteble item in _interactebleItemsInZone)
             {
                 float currentDistance = Vector2.Distance(closesestItem.transform.position, transform.position);
-                if (currentMinDistance < currentDistance)
+                if (currentDistance < currentMinDistance)
                 {
                     closesestItem = item;
                     currentMinDistance = currentDistance;

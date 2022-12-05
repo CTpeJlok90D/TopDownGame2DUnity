@@ -8,6 +8,8 @@ namespace AI
     {
         [SerializeField] private List<Task> _tasks;
 
+        public List<Task> Tasks => new(_tasks);
+
         private Task GetPreferentTask()
         {
             Task preferentTask = _tasks[0];

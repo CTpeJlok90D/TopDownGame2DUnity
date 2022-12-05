@@ -17,7 +17,7 @@ namespace Abilitys
         private float _currentCooldown = 0f;
         private float _currentPrepairingTime = 0f;
         private Coroutine _prepair;
-        private InputAction.CallbackContext _context;
+        private InputActionPhase _phase;
 
         public bool Prepearing => _currentPrepairingTime > 0;
         public int SkillPointCost => _skillPointCost;
@@ -27,14 +27,14 @@ namespace Abilitys
         protected float CurrentCooldown => _currentCooldown;
         protected UnityEvent PrepearStarted => _prepearStarted;
         protected UnityEvent PrepaerCanceled => _prepearCanceled;
-        protected InputAction.CallbackContext InputContext => _context;
+        protected InputActionPhase InputPhase => _phase;
         protected virtual bool ReduceCooldownCondiction => true;
         protected virtual bool UseCondiction => true;
 
 
-        public void Use(InputAction.CallbackContext context)
+        public void Use(InputActionPhase phase)
         {
-            _context = context;
+            _phase = phase;
             if (CanUse == false && UseCondiction)
             {
                 return;   

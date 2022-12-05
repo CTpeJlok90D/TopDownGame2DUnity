@@ -99,7 +99,7 @@ MonoBehaviour:
   _maxAmmoCount: 30
   _ammoCount: 30
   _reloadingTime: 1
-  _cameraImpactCoefficient: 0.25
+  _cameraImpactCoefficient: 0.075
   _reloadTimeLineEvents:
   - Event:
       m_PersistentCalls:

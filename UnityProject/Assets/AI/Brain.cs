@@ -1,5 +1,7 @@
+using AI.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace AI.Memory
 {
@@ -7,6 +9,9 @@ namespace AI.Memory
     {
         [SerializeField] private List<Memory> _memorys = new();
         [SerializeField] private List<MemoryDictionarity> _reactions = new();
+        [SerializeField] private List<Task> _targetebleTasksInspector = new();
+
+        private List<IHaveTarget> _targetebleTasks = new();
 
         private Dictionary<Factor, List<Memory>> _reactionDictionarity = new();
 
@@ -18,8 +23,12 @@ namespace AI.Memory
             }
         }
 
-        public void AddFactor(Factor factor)
+        public void AddFactor(Factor factor, Transform targetTransform)
         {
+            foreach (IHaveTarget task in _targetebleTasks)
+            {
+                task.Target = targetTransform;
+            }
             foreach (Memory memory in _reactionDictionarity[factor]) 
             {
                 bool added = false;
@@ -44,18 +53,6 @@ namespace AI.Memory
             ReduceDetiration(Time.deltaTime);
         }
 
-        private bool HaveItMemory(Memory memory)
-        {
-            foreach (Memory memoryIterator in _memorys)
-            {
-                if (memoryIterator == memory)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         private void ReduceDetiration(float time)
         {
             foreach (Memory memory in _memorys.ToArray())
@@ -66,6 +63,26 @@ namespace AI.Memory
                     memory.RemoveImpactOnPriority();
                     _memorys.Remove(memory);
                 }
+            }
+        }
+
+        private void OnValidate()
+        {
+            _targetebleTasks = new();
+
+            for (int i = 0; i < _targetebleTasksInspector.Count; i++)
+            {
+                if (_targetebleTasksInspector[i] is null)
+                {
+                    continue;
+                }
+                if (_targetebleTasksInspector[i] is IHaveTarget)
+                {
+                    _targetebleTasks.Add((IHaveTarget)_targetebleTasksInspector[i]);
+                    continue;
+                }
+                Debug.LogWarning("In this list must be IHaveTarget tasks only!");
+                _targetebleTasksInspector.RemoveAt(i);
             }
         }
     }

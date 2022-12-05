@@ -18,6 +18,6 @@ EditorBuildSettings:
     path: Assets/XP/XPGainTest.unity
     guid: 857dc8513e2693f4bafd332005ce0a93
   - enabled: 1
-    path: Assets/Environment/LightTest.unity
+    path: Assets/Units/AItest.unity
     guid: c60d7ea8204d28f4eb946d7fb2834f26
   m_configObjects: {}

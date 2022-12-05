@@ -16,6 +16,10 @@ namespace Weapons
             _light.transform.localRotation = Quaternion.identity;
             _light.SetActive(true);
             _bullet.Init(ownerInfo.XPContainer, _bloomInDegrees);
+            foreach (Transform transform in transform)
+            {
+                transform.gameObject.SetActive(true);
+            }
             return this;
         }
     }

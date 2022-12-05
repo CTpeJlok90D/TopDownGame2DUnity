@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace Health
 {
-    public class CharacterHealth : MonoBehaviour
+    public class UnitHealth : MonoBehaviour
     {
         [SerializeField] private int _max = 100;
         [SerializeField] private int _current = 100;
