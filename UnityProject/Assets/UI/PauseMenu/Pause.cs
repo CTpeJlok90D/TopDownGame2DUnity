@@ -9,20 +9,25 @@ public class Pause : MonoBehaviour
     [SerializeField] private Dialoger _dialoger;
     [SerializeField] private UnityEvent _gamePaused;
     [SerializeField] private UnityEvent _gameContinue;
-    private bool _isPaused;
+    private bool _isPaused = false;
 
     private void OnEnable()
     {
         InputHandler.Singletone.PauseMenu.Enable();
         InputHandler.Singletone.PauseMenu.OpenClose.Enable();
-        InputHandler.Singletone.PauseMenu.OpenClose.started += (InputAction.CallbackContext context) => OnMenuOpen();
+        InputHandler.Singletone.PauseMenu.OpenClose.started += OnMenuOpen;
     }
 
     private void OnDisable()
     {
         InputHandler.Singletone.PauseMenu.Disable();
         InputHandler.Singletone.PauseMenu.OpenClose.Disable();
-        InputHandler.Singletone.PauseMenu.OpenClose.started -= (InputAction.CallbackContext context) => OnMenuOpen();
+        InputHandler.Singletone.PauseMenu.OpenClose.started -= OnMenuOpen;
+    }
+
+    private void OnMenuOpen(InputAction.CallbackContext context)
+    {
+        OnMenuOpen();
     }
 
     private void Start()

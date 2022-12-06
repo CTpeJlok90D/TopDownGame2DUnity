@@ -102,6 +102,10 @@ namespace Weapons
 
         private void OnValidate() 
         {
+            if (_reloadTimeLineEvents.Length > 0)
+            {
+                _reloadTimeLineEvents[^1] = new TimeLineEvent(new UnityEvent(), _reloadingTime);
+            }
             if (_reloadTimeLineEvents.Length >= 2)
             {
                 return;

@@ -91,7 +91,7 @@ MonoBehaviour:
   _onAttack:
     m_PersistentCalls:
       m_Calls: []
-  _timeBetweenAttacks: 0.35
+  _timeBetweenAttacks: 0.28
   _weaponType: 2
   _bulletSpawnpoint: {fileID: 8172899696186982359}
   _bulletPrefub: {fileID: 1287259881302544560, guid: 3232bb48b7ff5ac4eb561857af9b37c9, type: 3}
@@ -99,7 +99,7 @@ MonoBehaviour:
   _maxAmmoCount: 8
   _ammoCount: 8
   _reloadingTime: 0.85
-  _cameraImpactCoefficient: 0.5
+  _cameraImpactCoefficient: 0.28
   _reloadTimeLineEvents:
   - Event:
       m_PersistentCalls:
@@ -108,7 +108,7 @@ MonoBehaviour:
   - Event:
       m_PersistentCalls:
         m_Calls: []
-    Time: 1.5
+    Time: 0.85
   _bloomCurve:
     serializedVersion: 2
     m_Curve:
